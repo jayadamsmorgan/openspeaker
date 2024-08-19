@@ -1,0 +1,15 @@
+{
+  "device": "/dev/dri/card1",
+  "hwcursor": false,
+  "pbuffers": true,
+  "outputs": [
+    {
+      "name": "Composite1",
+      "mode": "off"
+    },
+    {
+      "name": "HDMI1",
+      "mode": "1920x1080"
+    }
+  ]
+}
