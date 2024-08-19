@@ -9,6 +9,7 @@ IMAGE_INSTALL = "\
     kernel-devicetree \
     linux-firmware \
     openspeaker \
+    qtvirtualkeyboard \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 

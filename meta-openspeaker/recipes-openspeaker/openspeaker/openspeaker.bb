@@ -3,20 +3,24 @@ DESCRIPTION = "This recipe builds a Qt project for a simple calculator applicati
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-DEPENDS += "qtbase"
+DEPENDS += "qtbase qtquickcontrols qtvirtualkeyboard qttools-native"
 SRC_URI = " \
     file://openspeaker.service \
     file://eglfs.json \
-    git://github.com/jayadamsmorgan/openspeaker.git;branch=master;protocol=https \
+    file://openspeaker-qt \
     "
 SRCREV = "${AUTOREV}"
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "openspeaker.service"
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/openspeaker-qt"
 
-FILES:${PN} += " ${systemd_system_unitdir} ${systemd_system_unitdir}/openspeaker.service ${bindir}/simpleCalculator"
+FILES:${PN} += " \
+    ${systemd_system_unitdir} \
+    ${systemd_system_unitdir}/openspeaker.service \
+    ${base_prefix}/opt/openspeaker-qt/bin/openspeaker-qt \
+    "
 
 do_install:append() {
     install -d ${D}${bindir}
