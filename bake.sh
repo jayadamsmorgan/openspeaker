@@ -18,7 +18,7 @@ META_MESON_REPO="https://github.com/superna9999/meta-meson"
 META_MESON_BRANCH="nanbield"
 
 META_OPENSPEAKER_DIR="../../meta-openspeaker"
-LOCAL_CONF="../../conf/local.conf"
+LOCAL_CONF="../../default.conf"
 
 # Clone repositories if they don't exist
 clone_repo() {
@@ -70,7 +70,7 @@ if [ -f "$LOCAL_CONF" ]; then
     echo "Copying local.conf..."
     cp "$LOCAL_CONF" conf/local.conf
 else
-    echo "local.conf not found at $LOCAL_CONF. Skipping copy."
+    echo "default.conf not found at $LOCAL_CONF. Skipping copy."
 fi
 
 # Build the image
