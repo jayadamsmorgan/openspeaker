@@ -1,11 +1,11 @@
 [Unit]
-Description=Start the openspeaker app
+Description=Start openspaeker-qt
 After=multi-user.target
 
 [Service]
 WorkingDirectory=/usr/bin/
 Environment="QT_QPA_EGLFS_KMS_CONFIG=/etc/eglfs.json"
-ExecStart=/usr/bin/simpleCalculator -platform eglfs
+ExecStart=/usr/bin/openspeaker-qt -platform eglfs
 StandardOutput=journal+console
 #Restart=on-failure
 

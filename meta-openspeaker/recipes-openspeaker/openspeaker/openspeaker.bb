@@ -7,9 +7,9 @@ DEPENDS += "qtbase"
 SRC_URI = " \
     file://openspeaker.service \
     file://eglfs.json \
-    git://github.com/vpapadopou/qt-simple-calculator.git;branch=master;protocol=https \
+    git://github.com/jayadamsmorgan/openspeaker.git;branch=master;protocol=https \
     "
-SRCREV = "1af09d43f9a41ad3136a4fac9db63b9542692f91"
+SRCREV = "${AUTOREV}"
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "openspeaker.service"
@@ -20,7 +20,7 @@ FILES:${PN} += " ${systemd_system_unitdir} ${systemd_system_unitdir}/openspeaker
 
 do_install:append() {
     install -d ${D}${bindir}
-    install -m 0755 simpleCalculator ${D}${bindir}
+    install -m 0755 openspeaker-qt ${D}${bindir}
 
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/openspeaker.service ${D}/${systemd_system_unitdir}
