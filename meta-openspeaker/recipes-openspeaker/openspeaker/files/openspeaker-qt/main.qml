@@ -13,11 +13,13 @@ Window {
     width: 1920
 
     Rectangle {
+        id: mainMenu1
+
         anchors.centerIn: parent
         color: "lightblue"
-        height: 720
-        radius: height / 6
-        width: 1280
+        height: parent.height / 1.5
+        radius: 45
+        width: parent.width / 1.5
 
         GridLayout {
             anchors.fill: parent
@@ -30,32 +32,12 @@ Window {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                Rectangle {
+                Button {
                     id: streamingButton
 
                     property bool albumCoverPresent: false
-                    property color buttonColor: "red"
 
-                    color: if (buttonMouseArea.containsPress) {
-                        return Qt.darker(buttonColor);
-                    } else {
-                        return buttonColor;
-                    }
-                    radius: height / 6
-
-                    Rectangle {
-                        color: "white"
-                        height: parent.height - 20
-                        radius: height / 6
-                        width: parent.width / 2 - 20
-
-                        anchors {
-                            left: parent.left
-                            leftMargin: 10
-                            top: parent.top
-                            topMargin: 10
-                        }
-                    }
+                    buttonColor: "red"
 
                     anchors {
                         bottomMargin: 30
@@ -64,13 +46,28 @@ Window {
                         rightMargin: 30
                         topMargin: 30
                     }
+                }
+
+                Button {
+                    id: albumCoverHolder
+
+                    property real padding: 60
+
+                    buttonColor: "white"
+                    height: streamingButton.height - padding
+                    width: streamingButton.width / 2 - padding
 
                     MouseArea {
-                        id: buttonMouseArea
-
                         anchors.fill: parent
 
-                        onClicked: {}
+                        onClicked: {
+                            console.log("WOW!");
+                        }
+                    }
+
+                    anchors {
+                        centerIn: parent
+                        horizontalCenterOffset: -(width + padding) / 2
                     }
                 }
             }
