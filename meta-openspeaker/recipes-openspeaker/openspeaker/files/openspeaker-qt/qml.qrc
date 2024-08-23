@@ -1,6 +1,10 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
-        <file>Button.qml</file>
+        <file>Views/main.qml</file>
+        <file>Views/Canvas/PolyCanvas.qml</file>
+        <file>Views/Controls/Buttons/BackwardForwardButton.qml</file>
+        <file>Views/Controls/Buttons/Button.qml</file>
+        <file>Views/Controls/Buttons/PlayPauseButton.qml</file>
+        <file>Views/Controls/Sliders/Slider.qml</file>
     </qresource>
 </RCC>
