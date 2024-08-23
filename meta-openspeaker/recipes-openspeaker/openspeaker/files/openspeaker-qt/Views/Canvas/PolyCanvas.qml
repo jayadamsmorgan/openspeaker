@@ -105,6 +105,9 @@ Canvas {
     onPointsChanged: {
         requestPaint();
     }
+    onRadiusChanged: {
+        requestPaint();
+    }
     onWidthChanged: {
         requestPaint();
     }

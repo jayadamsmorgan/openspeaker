@@ -14,45 +14,51 @@ Rectangle {
     height: 50
     width: 100
 
-    PolyCanvas {
-        id: first
-
-        color: playButtonMouseArea.containsPress ? Qt.darker(parent.buttonColor) : parent.buttonColor
-        height: parent.height
-        radius: parent.radius
-        rotation: parent.forward ? -90 : 90
-        width: parent.width / 2
-
-        anchors {
-            left: parent.left
-        }
-    }
-
     Item {
+        anchors.centerIn: parent
         height: parent.height
-        width: parent.width / 2
+        width: parent.width
 
         PolyCanvas {
+            id: first
+
             color: playButtonMouseArea.containsPress ? Qt.darker(forwardBackwardButton.buttonColor) : forwardBackwardButton.buttonColor
             height: parent.height
             radius: forwardBackwardButton.radius
             rotation: forwardBackwardButton.forward ? -90 : 90
-            width: parent.width
+            width: parent.width / 2
+
+            anchors {
+                left: parent.left
+            }
         }
 
-        anchors {
-            left: first.right
-            leftMargin: -forwardBackwardButton.radius * 1.4
+        Item {
+            height: parent.height
+            width: parent.width / 2
+
+            PolyCanvas {
+                color: playButtonMouseArea.containsPress ? Qt.darker(forwardBackwardButton.buttonColor) : forwardBackwardButton.buttonColor
+                height: parent.height
+                radius: forwardBackwardButton.radius
+                rotation: forwardBackwardButton.forward ? -90 : 90
+                width: parent.width
+            }
+
+            anchors {
+                left: first.right
+                leftMargin: -forwardBackwardButton.radius * 1.4
+            }
         }
-    }
 
-    MouseArea {
-        id: playButtonMouseArea
+        MouseArea {
+            id: playButtonMouseArea
 
-        anchors.fill: parent
+            anchors.fill: parent
 
-        onClicked: {
-            forwardBackwardButton.clicked();
+            onClicked: {
+                forwardBackwardButton.clicked();
+            }
         }
     }
 }

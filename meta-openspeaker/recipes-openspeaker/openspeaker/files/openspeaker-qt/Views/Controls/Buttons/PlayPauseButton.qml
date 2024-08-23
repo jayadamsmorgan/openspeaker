@@ -14,11 +14,6 @@ Item {
     height: 50
     width: 50
 
-    Behavior on paused {
-        SmoothedAnimation {
-        }
-    }
-
     PolyCanvas {
         id: playButton
 

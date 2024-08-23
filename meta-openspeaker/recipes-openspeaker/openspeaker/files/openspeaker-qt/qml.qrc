@@ -6,5 +6,7 @@
         <file>Views/Controls/Buttons/Button.qml</file>
         <file>Views/Controls/Buttons/PlayPauseButton.qml</file>
         <file>Views/Controls/Sliders/Slider.qml</file>
+        <file>Views/Menus/MainMenu1.qml</file>
+        <file>Views/Widgets/StreamingWidget.qml</file>
     </qresource>
 </RCC>
