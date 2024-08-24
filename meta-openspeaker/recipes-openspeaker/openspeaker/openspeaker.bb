@@ -3,7 +3,7 @@ DESCRIPTION = "This recipe builds a Qt project for a simple calculator applicati
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-DEPENDS += "qtbase qtquickcontrols qtvirtualkeyboard qttools-native"
+DEPENDS += "qtbase qtquickcontrols2 qtvirtualkeyboard qttools-native"
 SRC_URI = " \
     file://openspeaker.service \
     file://eglfs.json \

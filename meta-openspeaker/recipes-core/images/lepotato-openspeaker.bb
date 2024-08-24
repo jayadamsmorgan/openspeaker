@@ -10,6 +10,7 @@ IMAGE_INSTALL = "\
     linux-firmware \
     openspeaker \
     qtvirtualkeyboard \
+    qtquickcontrols2 \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 

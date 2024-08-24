@@ -20,6 +20,11 @@ Slider {
         x: (control.width - width) / 2
         y: (control.height - height) / 2
     }
+    handle: Rectangle {
+        color: "transparent"
+        height: control.horizontal ? control.height : control.width
+        width: control.horizontal ? control.height : control.width
+    }
 
     Rectangle {
         implicitHeight: control.vertical ? control.visualPosition * (control.availableHeight) : control.pressed ? 10 : 8
