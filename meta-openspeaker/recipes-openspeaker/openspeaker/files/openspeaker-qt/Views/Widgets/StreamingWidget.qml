@@ -3,7 +3,17 @@ import "../Controls/Buttons"
 import "../Controls/Sliders"
 
 Item {
+    id: streamingWidget
+
     property real buttonRadius
+    property real songDuration: 212
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        const formattedSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
+        return `${minutes}:${formattedSeconds}`;
+    }
 
     Button {
         id: streamingButton
@@ -44,7 +54,19 @@ Item {
         }
     }
 
+    Text {
+        color: "black"
+        text: streamingWidget.formatTime(streamingWidget.songDuration * streamingSlider.value)
+
+        anchors {
+            right: streamingSlider.left
+            verticalCenter: streamingSlider.verticalCenter
+        }
+    }
+
     Slider {
+        id: streamingSlider
+
         width: streamingButton.width / 2.8
 
         anchors {
@@ -52,6 +74,16 @@ Item {
             horizontalCenterOffset: -3
             verticalCenter: playPauseButton.verticalCenter
             verticalCenterOffset: -40
+        }
+    }
+
+    Text {
+        color: "black"
+        text: "-" + streamingWidget.formatTime(-streamingWidget.songDuration * streamingSlider.visualPosition + streamingWidget.songDuration)
+
+        anchors {
+            left: streamingSlider.right
+            verticalCenter: streamingSlider.verticalCenter
         }
     }
 
